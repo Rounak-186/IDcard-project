@@ -61,17 +61,24 @@ document.addEventListener("DOMContentLoaded", () => {
         html2canvas(captureElement).then((canvas) => {
             // Convert the canvas to a data URL
             const imageData = canvas.toDataURL("image/png");
+            const { jsPDF } = window.jspdf;
+            const pdf = new jsPDF({
+                orientation: 'portrait',
+                unit: 'mm',
+                format: 'a4',
+            });
 
-            // Create a temporary <a> element
-            const downloadLink = document.createElement('a');
-            downloadLink.href = imageData; // Set the image data as the href
-            downloadLink.download = 'send-it-to-your-CR.png'; // Set the filename for download
+            // Calculate dimensions for A4 size
+            const pageWidth = 210; // A4 width in mm
+            const pageHeight = 297; // A4 height in mm
+            const imgWidth = pageWidth - 20; // Add margin
+            const imgHeight = (canvas.height * imgWidth) / canvas.width; // Maintain aspect ratio
 
-            // Trigger the download
-            downloadLink.click();
+            // Add image to the PDF
+            pdf.addImage(imageData, 'PNG', 10, 10, imgWidth, imgHeight, undefined, 'FAST');
 
-            // Cleanup (optional, since the element is not added to the DOM)
-            downloadLink.remove();
+            // Download the PDF
+            pdf.save('send-it-to-your-CR.pdf');
         }).catch((error) => {
             console.error("Screenshot failed: ", error);
         }).finally(() => {
