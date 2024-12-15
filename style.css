@@ -13,7 +13,7 @@ main {
     width: 28em;
 }
 
-.notif-flag{
+.notif-flag {
     width: 28em;
     padding: 1em;
     background-color: #70ccf170;
@@ -201,6 +201,10 @@ textarea {
 
 @media(max-width: 450px) {
     .card-container {
+        width: 100vw;
+    }
+
+    .notif-flag {
         width: 100vw;
     }
 }
