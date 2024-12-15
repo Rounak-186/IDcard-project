@@ -1,0 +1,221 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+main {
+    display: flex;
+    justify-content: center;
+}
+
+.card-container {
+    width: 28em;
+}
+
+.notif-flag{
+    width: 28em;
+    padding: 1em;
+    background-color: #70ccf170;
+    margin: 1em 0;
+    margin-top: 0.5em;
+    border-radius: 10px;
+}
+
+.header-box {
+    width: 100%;
+    background-color: #192d42;
+    padding: 2em;
+    padding-bottom: 0em;
+    padding-top: 0;
+    border-radius: 0 0 10% 10%;
+    height: 13em;
+    margin-bottom: 4em;
+    position: relative;
+}
+
+.header-box::after {
+    content: "";
+    width: 98%;
+    height: 5em;
+    border-radius: 0 0 50% 50%;
+    background-color: #192d42;
+    position: absolute;
+    z-index: -1;
+    transform: translate(-1.8em, -2.2em);
+}
+
+.box-1 {
+    background-color: #08bede;
+    border-radius: 0 0 30px 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 1em;
+    overflow: visible;
+    height: 90%;
+    position: relative;
+}
+
+.box-1::after {
+    content: "";
+    width: 95%;
+    height: 3em;
+    border-radius: 50%;
+    background-color: #08bede;
+    position: absolute;
+    z-index: 1;
+    transform: translate(0em, 8.5em);
+}
+
+.text-1 {
+    color: white;
+}
+
+.text-2 {
+    position: absolute;
+    top: 3em;
+    z-index: 2;
+    color: white;
+}
+
+.profile-circle img {
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    border: 7px solid white;
+    background-color: #ffffff;
+    position: absolute;
+    z-index: 2;
+    transform: translateY(3em);
+}
+
+.profile-circle {
+    width: fit-content;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 180px;
+}
+
+.profile-circle::before {
+    content: "";
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    background-color: #08bede;
+    position: absolute;
+    z-index: 1;
+    transform: translateY(2.4em);
+}
+
+/* .card-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+} */
+.edit-icon {
+    position: absolute;
+    z-index: 3;
+    background-color: #ffffff;
+    width: 2.5em;
+    height: 2.5em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    align-self: flex-end;
+    transform: translate(4em, 3em);
+    cursor: pointer;
+}
+
+.main-box {
+    background-image: url(/assets/JGEC_logo.png);
+    background-repeat: no-repeat;
+    background-size: 70%;
+    background-position: 4em 2.8em;
+}
+
+.additional-info {
+    padding: 0 1em;
+}
+
+input,
+textarea {
+    width: 100%;
+    background-color: transparent;
+    overflow: hidden;
+    resize: none;
+    white-space: pre-warp;
+}
+
+.textarea-text {
+    font-size: inherit;
+    font-weight: inherit;
+    font-family: inherit;
+    width: 100%;
+    margin-bottom: 0;
+    white-space: pre-wrap;
+    font-weight: bold;
+    color: black;
+}
+
+.cap-input {
+    text-transform: uppercase;
+}
+
+.input-fields {
+    display: grid;
+    grid-auto-flow: column;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.5em;
+
+    & h6 {
+        display: grid;
+        grid-auto-flow: column;
+        font-size: 0.9em !important;
+        font-weight: bold;
+
+        & span {
+            white-space: nowrap;
+        }
+    }
+
+    & input {
+        font-weight: bold;
+    }
+
+    & textarea {
+        font-weight: bold;
+    }
+}
+
+.input-fields h6 span:last-child {
+    justify-self: end;
+}
+
+.sign img {
+    width: 250px;
+    filter: grayscale(1.2);
+}
+
+@media(max-width: 450px) {
+    .card-container {
+        width: 100vw;
+    }
+}
+
+@media(max-width: 370px) {
+    .header-box {
+        padding-left: 0.9em;
+        padding-right: 0.9em;
+    }
+
+    .header-box::after {
+        transform: translate(-1.1em, -2.2em);
+    }
+
+    .input-fields h6 {
+        font-size: 0.8em !important;
+    }
+}
